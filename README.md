@@ -2,5 +2,5 @@
 
 ## Contributors
 
-- Instructor: Joseph Issa  
-- Student: Brijette Baboolal
+- Brijette Baboolal  
+- Joseph Issa
