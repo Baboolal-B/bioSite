@@ -1,2 +1,6 @@
-# bioSite
-This is were all work for CSD340 bioSite project would be held
+# CSD 340 Web Development with HTML and CSS
+
+## Contributors
+
+- Brijette Baboolal  
+- Joseph Issa
