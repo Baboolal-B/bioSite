@@ -1,13 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile Page</title>
-  <link rel="stylesheet" href="BaboolalbioSite.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile Page with Floating Bubbles</title>
+  <link rel="stylesheet" href="BaboolalbioSite.css" />
+  <style>
+    /* Bubble styling */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background-color: #3498db;
+      opacity: 0.12;
+      z-index: 0;
+      pointer-events: none;
+
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Bubble sizes */
+    .small {
+      width: 30px;
+      height: 30px;
+    }
+    .medium {
+      width: 50px;
+      height: 50px;
+    }
+    .large {
+      width: 80px;
+      height: 80px;
+    }
+    .xlarge {
+      width: 120px;
+      height: 120px;
+    }
+
+    /* Bubble positions and size overrides */
+    .bubble1 { bottom: -293px; left: -60px; }
+    .bubble2 { bottom: -147px; right: -60px; }
+    .bubble3 { bottom: -189px; left: 10%; }
+    .bubble4 { bottom: -378px; right: 20%; }
+    .bubble5 { bottom: -383px; left: 30%; }
+    .bubble6 { bottom: -213px; right: 35%; }
+
+    /* Additional bubbles lower down */
+    .bubble7 {
+      bottom: -450px;
+      left: 15%;
+      width: 60px;
+      height: 60px;
+    }
+    .bubble8 {
+      bottom: -420px;
+      right: 15%;
+      width: 40px;
+      height: 40px;
+    }
+    .bubble9 {
+      bottom: -460px;
+      left: 40%;
+      width: 90px;
+      height: 90px;
+    }
+
+    /* Bubbles on sides higher up */
+    .bubble10 { top: 150px; left: -50px; }
+    .bubble11 { top: 350px; right: -50px; }
+    .bubble12 { top: 250px; left: -70px; }
+
+    /* Bubble sizes for container bubbles */
+    .bubble13 { width: 80px; height: 80px; }  /* large */
+    .bubble14 { width: 30px; height: 30px; }  /* small */
+    .bubble15 { width: 80px; height: 80px; }  /* large */
+    .bubble16 { width: 50px; height: 50px; }  /* medium */
+    .bubble17 { width: 30px; height: 30px; }  /* small */
+    .bubble18 { width: 50px; height: 50px; }  /* medium */
+    .bubble19 { width: 50px; height: 50px; }  /* medium */
+    .bubble20 { width: 30px; height: 30px; }  /* small */
+    .bubble21 { width: 30px; height: 30px; }  /* small */
+    .bubble22 { width: 50px; height: 50px; }  /* medium */
+    .bubble23 { width: 30px; height: 30px; }  /* small */
+    .bubble24 { width: 30px; height: 30px; }  /* small */
+    .bubble25 { width: 80px; height: 80px; }  /* large */
+    .bubble26 { width: 50px; height: 50px; }  /* medium */
+    .bubble27 { width: 30px; height: 30px; }  /* small */
+    .bubble28 { width: 50px; height: 50px; }  /* medium */
+    .bubble29 { width: 30px; height: 30px; }  /* small */
+    .bubble30 { width: 30px; height: 30px; }  /* small */
+    .bubble31 { width: 80px; height: 80px; }  /* large */
+    .bubble32 { width: 50px; height: 50px; }  /* medium */
+
+    /* The following bubbles had no sizes in original, so assign medium */
+    .bubble33, .bubble34, .bubble35, .bubble36, .bubble37, .bubble38, .bubble39, .bubble40 {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* Floating animation keyframes */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Basic container and body styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background-color: #ffffff;
+      color: #003366;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background: transparent;
+    }
+
+    /* Basic styling for your content */
+    header {
+      text-align: center;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 10px;
+    }
+
+    .bio-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .bio {
+      flex: 1;
+      min-width: 250px;
+      margin-right: 20px;
+    }
+
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border: 3px solid #003366;
+      border-radius: 100px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #e6f0ff;
+      border: 2px solid #003366;
+      border-radius: 10px;
+      width: 150px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      color: #003366;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
+    <!-- Bubbles inside container -->
+    <div class="bubble large bubble13"></div>
+    <div class="bubble small bubble14"></div>
+    <div class="bubble large bubble15"></div>
+    <div class="bubble medium bubble16"></div>
+    <div class="bubble small bubble17"></div>
+    <div class="bubble medium bubble18"></div>
+    <div class="bubble medium bubble19"></div>
+    <div class="bubble small bubble20"></div>
+    <div class="bubble small bubble21"></div>
+    <div class="bubble medium bubble22"></div>
+    <div class="bubble small bubble23"></div>
+    <div class="bubble small bubble24"></div>
+    <div class="bubble large bubble25"></div>
+    <div class="bubble medium bubble26"></div>
+
+    <!-- Lots of text-edge bubbles right -->
+    <div class="bubble small bubble27"></div>
+    <div class="bubble medium bubble28"></div>
+    <div class="bubble small bubble29"></div>
+    <div class="bubble small bubble30"></div>
+    <div class="bubble large bubble31"></div>
+    <div class="bubble medium bubble32"></div>
+    <div class="bubble medium bubble33"></div>
+    <div class="bubble medium bubble34"></div>
+    <div class="bubble medium bubble35"></div>
+    <div class="bubble medium bubble36"></div>
+    <div class="bubble medium bubble37"></div>
+    <div class="bubble medium bubble38"></div>
+    <div class="bubble medium bubble39"></div>
+    <div class="bubble medium bubble40"></div>
+
     <header>
       <h1>My Dad</h1>
     </header>
@@ -15,48 +230,66 @@
     <section class="bio-section">
       <div class="bio">
         <h2>Biography</h2>
-        <p>My Dad, was born on January 20th in Trinidad and Tobago. He grew up in a close-knit family that included his mother, father, two older sisters, and three older brothers, making him the youngest child in his family. One memory he has growing up is going to the beach with his family when he was younger, where they would spend hours swimming, relaxing, and enjoying each other’s company. After marrying his wife, they moved to the USA in January 2003 to allow their children to have a better life. Here, his family grew, and he is now a proud father of four. His family is his motivation every day. He loves spending his free time with them, whether they are watching a movie, doing an activity, or just enjoying each other’s company family time is something he values deeply. His goal is to see all his children become successful in life. These days, his life is steady and straightforward he goes to work, comes home, and enjoys a peaceful night with his family. He looks forward to retirement and upcoming vacations. His strengths include being practical, resourceful, and adaptable to any situation. He has no known weakness as of now and when asked what his challenges he has faced with in life his response was he never had any challenges and hope to keep it that way. His hobbies include spending time with family, watching TV, and fixing cars, which he is skilled at. Some things he is the most proud of in his life are his wife, his children, and his job.</p>
+        <p>
+          My Dad, was born on January 20th in Trinidad and Tobago. He grew up in a close-knit family that included his mother, father, two older sisters, and three older brothers, making him the youngest child in his family. One memory he has growing up is going to the beach with his family when he was younger, where they would spend hours swimming, relaxing, and enjoying each other’s company. After marrying my mom, they moved to the USA in January 2003 to allow their children to have a better life. Here, his family grew, and he is now a proud father of four. His family is his motivation every day. He loves spending his free time with them, whether they are watching a movie, doing an activity, or just enjoying each other’s company family time is something he values deeply. His goal is to see all his children become successful in life. These days, his life is steady and straightforward he goes to work, comes home, and enjoys a peaceful night with his family. He looks forward to retirement and upcoming vacations. His strengths include being practical, resourceful, and adaptable to any situation. He has no known weakness as of now and when asked what his challenges he has faced with in life his response was he never had any challenges and hopes to keep it that way. His hobbies include spending time with family, watching TV, and fixing cars, which he is skilled at. Some things he is the most proud of in his life are his wife, his children, and his job.
+        </p>
       </div>
       <div class="profile-pic">
-        <img src="flower.png" alt="Picture of Subject">
+        <img src="flower.png" alt="Picture of Subject" />
       </div>
     </section>
 
     <section class="hobbies">
-      <h2>Hobbies They Have and Pictures:</h2>
+      <h2><a href="Baboolalhobbies.html">Hobbies He Has and Pictures:</a></h2>
       <div class="card-grid">
-      <div class="card">
-        <img src="family.png" alt="PNG of a Family holding hands">
-        <p>Spending Time with Family</p>
+        <div class="card">
+          <img src="family.png" alt="PNG of a Family holding hands" />
+          <p>Spending Time with Family</p>
+        </div>
+        <div class="card">
+          <img src="cars.png" alt="PNG of Fixing Car" />
+          <p>Fixing Cars</p>
+        </div>
+        <div class="card">
+          <img src="tv.png" alt="Streaming Services Logo" />
+          <p>Watching TV</p>
+        </div>
       </div>
-      <div class="card">
-        <img src="cars.png" alt="PNG of Fixing Car">
-        <p>Fixing Cars</p>
-      </div>
-      <div class="card">
-        <img src="tv.png" alt="Streaming Services Logo">
-        <p>Watching TV</p>
-      </div>
-    </div>
     </section>
 
     <section class="goals">
       <h2>Goals:</h2>
       <div class="card-grid">
-      <div class="card">
-        <img src="retirement.png" alt="PNG of a rocking chair with a coin ontop of it">
-        <p>Retirement</p>
+        <div class="card">
+          <img src="retirement.png" alt="PNG of a rocking chair with a coin on top of it" />
+          <p>Retirement</p>
+        </div>
+        <div class="card">
+          <img src="vacation.png" alt="PNG of a suitcase and a palm tree behind it with an umbrella" />
+          <p>Vacation</p>
+        </div>
+        <div class="card">
+          <img src="success.png" alt="PNG of someone climbing a staircase reaching a flag" />
+          <p>Seeing His Children Become Successful</p>
+        </div>
       </div>
-      <div class="card">
-        <img src="vacation.png" alt="PNG of a suitcase a a palm tree behind it with an umbrella">
-        <p>Vacation</p>
-      </div>
-      <div class="card">
-        <img src="success.png" alt="PNG of someone climbing a staircase reaching a flag">
-        <p>Seeing His Children Become Successful</p>
-      </div>
-    </div>
     </section>
   </div>
+
+  <!-- Bubbles outside container near bottom and sides -->
+  <div class="bubble xlarge bubble1"></div>
+  <div class="bubble large bubble2"></div>
+  <div class="bubble medium bubble3"></div>
+  <div class="bubble medium bubble4"></div>
+  <div class="bubble large bubble5"></div>
+  <div class="bubble xlarge bubble6"></div>
+
+  <div class="bubble medium bubble7"></div>
+  <div class="bubble small bubble8"></div>
+  <div class="bubble large bubble9"></div>
+
+  <div class="bubble large bubble10"></div>
+  <div class="bubble medium bubble11"></div>
+  <div class="bubble large bubble12"></div>
 </body>
 </html>

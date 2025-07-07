@@ -1,26 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile Page</title>
-  <link rel="stylesheet" href="BaboolalbioSite.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile Page - Full Bubble Fade at Top</title>
+  <style>
+    body {
+      overflow-x: hidden;
+      overflow-y: hidden; /* No scroll */
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #003366;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      height: 100vh;
+    }
+
+    .hobbies {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 10px;
+    }
+
+    .card-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #e6f0ff;
+      border: 2px solid #003366;
+      border-radius: 10px;
+      width: 250px;
+      padding: 15px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .card p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #003366;
+    }
+
+    /* Bubble base style */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background-color: #3498db;
+      opacity: 0.15;
+      pointer-events: none;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      z-index: 0;
+    }
+
+    /* Bubble sizes */
+    .small { width: 20px; height: 20px; }
+    .medium { width: 40px; height: 40px; }
+    .large { width: 70px; height: 70px; }
+    .xlarge { width: 100px; height: 100px; }
+
+    /* Float animation - keep opacity until near the top */
+    @keyframes floatUpDrift {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.15;
+      }
+      95% {
+        opacity: 0.15;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(var(--drift));
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-<section class="hobbies">
-      <h2>Hobbies They Have and Pictures:</h2>
-      <div class="card-grid">
+
+  <section class="hobbies">
+    <h2>Hobbies He Has and Pictures:</h2>
+    <div class="card-grid">
       <div class="card">
-        <img src="family.png" alt="PNG of a Family holding hands">
-        <p>Spending Time with Family</p>
+        <img src="family.png" alt="PNG of a Family holding hands" />
+        <p><strong>Spending Time with Family</strong></p>
+        <p>Majority of his time goes to spending time with his family, whether they are watching a movie, doing an activity, or just enjoying each other’s company. Family time is something he values deeply.</p>
       </div>
       <div class="card">
-        <img src="cars.png" alt="PNG of Fixing Car">
-        <p>Fixing Cars</p>
+        <img src="cars.png" alt="PNG of Fixing Car" />
+        <p><strong>Fixing Cars</strong></p>
+        <p>Since he was younger my Father has always been into cars and learning how to fix them and now he fixes all his family cars.</p>
       </div>
       <div class="card">
-        <img src="tv.png" alt="Streaming Services Logo">
-        <p>Watching TV</p>
+        <img src="tv.png" alt="Streaming Services Logo" />
+        <p><strong>Watching TV</strong></p>
+        <p>If he isn't with his family, fixing someone's car, and not sleeping then he is most likely watching TV catching up on his shows.</p>
       </div>
     </div>
-    </section>
+  </section>
+
+  <!-- Bubble Generator -->
+  <script>
+    const colors = ['#3498db', '#5dade2', '#85c1e9', '#aed6f1'];
+    const sizes = ['small', 'medium', 'large', 'xlarge'];
+    const body = document.body;
+
+    for (let i = 0; i < 50; i++) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      bubble.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+      bubble.style.left = Math.random() * 100 + 'vw';
+      bubble.style.bottom = (-200 + Math.random() * 100) + 'px';
+      const duration = 2 + Math.random() * 3;
+      bubble.style.animationDuration = duration + 's';
+      bubble.style.animationDelay = (Math.random() * duration) + 's';
+      bubble.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      bubble.style.setProperty('--drift', (Math.random() > 0.5 ? 30 : -30) + 'px');
+      bubble.style.animationName = 'floatUpDrift';
+      body.appendChild(bubble);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,49 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>bioSite Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f4f8;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #e0ecf8, #f9f9f9);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .container {
+      background-color: white;
+      padding: 60px 40px;
+      border-radius: 20px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 90%;
       text-align: center;
-      padding: 100px 20px;
-      color: #333;
+      z-index: 2;
     }
 
     h1 {
       font-size: 2.5em;
-      color: #2c3e50;
+      margin-bottom: 20px;
     }
 
     p {
-      font-size: 1.2em;
-      margin: 20px 0;
+      font-size: 1.1em;
+      margin-bottom: 30px;
+      color: #555;
     }
 
     a {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
+      padding: 14px 28px;
       font-size: 1em;
+      font-weight: bold;
       background-color: #3498db;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
+      border-radius: 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     a:hover {
       background-color: #2980b9;
+      transform: scale(1.05);
+    }
+
+    /* Bubble animation */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background-color: #3498db;
+      opacity: 0; /* start invisible */
+      pointer-events: none;
+      animation-name: floatUp;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards; /* keep opacity 0 until animation starts */
+      z-index: 1;
+    }
+
+    .small  { width: 20px; height: 20px; }
+    .medium { width: 40px; height: 40px; }
+    .large  { width: 80px; height: 80px; }
+    .xlarge { width: 120px; height: 120px; }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      5% {
+        opacity: 0.15;
+      }
+      95% {
+        opacity: 0.15;
+      }
+      100% {
+        transform: translateY(-120vh) translateX(var(--drift));
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Welcome to Brijette's bioSite Project!</h1>
-  <p>Click the link below to be directed to the official bioSite page.</p>
-  <a href="BaboolalbioSite.html">Go to bioSite</a>
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Welcome to Brijette's bioSite Project!</h1>
+    <p>Click the button below to explore the official bioSite page.</p>
+    <a href="BaboolalbioSite.html">Go to bioSite</a>
+  </div>
+
+  <!-- Bubble Generator -->
+  <script>
+    const colors = ['#3498db', '#5dade2', '#85c1e9', '#aed6f1'];
+    const sizes = ['small', 'medium', 'large', 'xlarge'];
+    const body = document.body;
+
+    for (let i = 0; i < 50; i++) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      bubble.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+      bubble.style.left = Math.random() * 100 + 'vw';
+      bubble.style.bottom = (-150 - Math.random() * 200) + 'px'; // start further below viewport
+      bubble.style.animationDuration = (3 + Math.random() * 2) + 's';
+      bubble.style.animationDelay = (Math.random() * 10) + 's';
+      bubble.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      bubble.style.setProperty('--drift', (Math.random() > 0.5 ? 40 : -40) + 'px');
+      body.appendChild(bubble);
+    }
+  </script>
 
 </body>
 </html>

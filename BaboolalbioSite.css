@@ -1,9 +1,14 @@
+
+
 body {
+  overflow-x: hidden;
   font-family: Arial, sans-serif;
   background-color: #ffffff;
   color: #003366;
   margin: 0;
   padding: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .container {
@@ -11,6 +16,8 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 header {
@@ -25,6 +32,8 @@ header {
   align-items: flex-start;
   margin-top: 20px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
 .bio {
@@ -51,6 +60,8 @@ header {
 
 section {
   margin-top: 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .card-grid {
@@ -58,6 +69,8 @@ section {
   gap: 20px;
   justify-content: center;
   margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .card {
@@ -65,13 +78,13 @@ section {
   border: 2px solid #003366;
   border-radius: 10px;
   width: 150px;
-  height: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
   text-align: center;
+  z-index: 2;
 }
 
 .card img {
@@ -85,4 +98,93 @@ section {
   margin-top: 10px;
   font-size: 14px;
   color: #003366;
+}
+
+/* Bubble styling */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #3498db;
+  opacity: 0.1;
+  z-index: 0 !important;
+  pointer-events: none;
+}
+
+.small { width: 30px; height: 30px; }
+.medium { width: 50px; height: 50px; }
+.large { width: 80px; height: 80px; }
+.xlarge { width: 120px; height: 120px; }
+
+/* Top Bubbles */
+.bubble10 { top: 100px; left: -50px; width: 70px; height: 70px; }
+.bubble11 { top: 40px; right: 60px; width: 50px; height: 50px; }
+.bubble12 { top: 80px; left: 40px; width: 60px; height: 60px; }
+.bubble13 { top: 120px; left: -30px; width: 40px; height: 40px; }
+.bubble14 { top: 90px; right: -40px; width: 50px; height: 50px; }
+.bubble15 { top: 160px; right: -60px; width: 60px; height: 60px; }
+.bubble16 { top: 200px; left: -40px; width: 70px; height: 70px; }
+
+/* Left Side – Mostly Middle */
+.bubble17 { top: 250px; left: -80px; width: 40px; height: 40px; }
+.bubble18 { top: 350px; left: -40px; width: 60px; height: 60px; }
+.bubble21 { top: 460px; left: -50px; width: 50px; height: 50px; }
+.bubble22 { top: 580px; left: 50px; width: 30px; height: 30px; }
+.bubble25 { top: 700px; left: -20px; width: 60px; height: 60px; }
+.bubble26 { top: 750px; left: -10px; width: 40px; height: 40px; }
+
+/* Right Side – Mostly Middle */
+.bubble19 { top: 260px; right: 30px; width: 45px; height: 45px; }
+.bubble20 { top: 340px; right: 80px; width: 60px; height: 60px; }
+.bubble27 { top: 470px; right: 50px; width: 50px; height: 50px; }
+.bubble28 { top: 530px; right: 60px; width: 40px; height: 40px; }
+.bubble31 { top: 300px; right: -20px; width: 70px; height: 70px; }
+.bubble32 { top: 760px; right: -10px; width: 45px; height: 45px; }
+
+/* Bottom Center Bubbles - Moved Higher */
+.bubble1 { top: 850px; left: 5%; width: 40px; height: 40px; }
+.bubble2 { top: 850px; right: 5%; width: 40px; height: 40px; }
+.bubble3 { top: 800px; left: 20%; width: 50px; height: 50px; }
+.bubble4 { top: 800px; right: 20%; width: 50px; height: 50px; }
+.bubble5 { top: 760px; left: 30%; width: 60px; height: 60px; }
+.bubble6 { top: 760px; right: 30%; width: 60px; height: 60px; }
+.bubble7 { top: 880px; left: 15%; width: 60px; height: 60px; }
+.bubble8 { top: 880px; right: 15%; width: 40px; height: 40px; }
+.bubble9 { top: 900px; left: 40%; width: 90px; height: 90px; }
+
+/* Decorative Side Edge Bubbles (30%) */
+.side-bubble1 { top: 120px; left: -60px; width: 80px; height: 80px; }
+.side-bubble2 { top: 420px; right: -50px; width: 70px; height: 70px; }
+.side-bubble3 { top: 600px; left: -25px; width: 50px; height: 50px; }
+.side-bubble4 { top: 650px; right: -60px; width: 60px; height: 60px; }
+
+/* Adjusted bubbles from top-right cluster spread */
+
+/* 5 bubbles spread to left-center */
+.bubble33 { top: 80px; left: 38%; width: 50px; height: 50px; }
+.bubble34 { top: 50px; left: 23%; width: 40px; height: 40px; }
+.bubble35 { top: 60px; left: 68%; width: 60px; height: 60px; }
+.bubble36 { top: 90px; left: 45%; width: 30px; height: 30px; }
+.bubble37 { top: 40px; left: 95%; width: 45px; height: 45px; }
+
+/* 4 bubbles lower down right, spaced vertically */
+.bubble38 { top: 480px; right: 10px; width: 70px; height: 70px; }
+.bubble39 { top: 540px; right: 20px; width: 40px; height: 40px; }
+.bubble40 { top: 600px; right: 15px; width: 50px; height: 50px; }
+.bubble41 { top: 660px; right: 10px; width: 50px; height: 50px; }
+
+/* Gentle floating animation */
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px); /* Adjust bounce height here */
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
