@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Goals - Profile Page with Floating Bubbles</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #003366;
+      overflow-x: hidden;
+      overflow-y: hidden; /* No scroll */
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      text-align: center;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .card-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #e6f0ff;
+      border: 2px solid #003366;
+      border-radius: 10px;
+      width: 250px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      color: #003366;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .card p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    /* Bubble base style */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background-color: #3498db;
+      opacity: 0.15;
+      pointer-events: none;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      z-index: 0;
+    }
+
+    /* Bubble sizes */
+    .small { width: 20px; height: 20px; }
+    .medium { width: 40px; height: 40px; }
+    .large { width: 70px; height: 70px; }
+    .xlarge { width: 100px; height: 100px; }
+
+    /* Float animation */
+    @keyframes floatUpDrift {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.15;
+      }
+      95% {
+        opacity: 0.15;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(var(--drift));
+        opacity: 0;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <section class="goals">
+  <h2 style="font-size: 36px;">
+  Goals
+    <div class="nav-links">
+  <a href="BaboolalbioSite.html" style="margin: 0 10px; color: #003366; text-decoration: none; font-weight: bold; font-size: 20px;">Home</a>
+  <a href="Baboolalabout.html" style="margin: 0 10px; color: #003366; text-decoration: none; font-weight: bold; font-size: 20px;">About</a>
+  <a href="Baboolalhobbies.html" style="margin: 0 10px; color: #003366; text-decoration: none; font-weight: bold; font-size: 20px;">Hobbies</a>
+</div>
+  </h2>
+      <div class="card-grid">
+        <div class="card">
+          <img src="retirement.png" alt="PNG of My Dad and Mom hugging each other." />
+          <p>Retirement</p>
+        </div>
+        <div class="card">
+          <img src="vacation.png" alt="PNG of My Dad and Mom on a plane." />
+          <p>Vacation</p>
+        </div>
+        <div class="card">
+          <img id="slideshow" src="success1.png" alt="Slideshow of success images" />
+          <p>Seeing His Children Become Successful</p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 20px;">
+        These images represent some of the major goals that inspire my dad every day. He looks forward to enjoying a peaceful retirement with his wife, going on vacations to relax and explore, and most importantly, seeing all of his children grow up to be happy and successful. These goals motivate him to keep pushing forward and give his best in everything he does.
+      </p>
+    </section>
+  </div>
+
+  <!-- Bubbles -->
+  <script>
+    const colors = ['#3498db', '#5dade2', '#85c1e9', '#aed6f1'];
+    const sizes = ['small', 'medium', 'large', 'xlarge'];
+    const body = document.body;
+
+    for (let i = 0; i < 50; i++) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      bubble.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+      bubble.style.left = Math.random() * 100 + 'vw';
+      bubble.style.bottom = (-200 + Math.random() * 100) + 'px';
+      const duration = 2 + Math.random() * 3;
+      bubble.style.animationDuration = duration + 's';
+      bubble.style.animationDelay = (Math.random() * duration) + 's';
+      bubble.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      bubble.style.setProperty('--drift', (Math.random() > 0.5 ? 30 : -30) + 'px');
+      bubble.style.animationName = 'floatUpDrift';
+      body.appendChild(bubble);
+    }
+
+    // Slideshow for success images
+    const images = ["success1.png", "success2.png", "success3.png"];
+    let index = 0;
+
+    const slideshow = document.getElementById("slideshow");
+
+    if (slideshow) {
+      setInterval(() => {
+        index = (index + 1) % images.length;
+        slideshow.src = images[index];
+      }, 3000);
+    }
+  </script>
+ <footer style="text-align:center; color:#003366; padding: 15px 0; font-size: 14px; position: relative; z-index: 1;">
+    © 2025 Brijette Baboolal - CSD 340 Web Development
+  </footer>
+
+
+</body>
+</html>

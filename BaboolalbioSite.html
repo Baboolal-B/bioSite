@@ -224,18 +224,23 @@
     <div class="bubble medium bubble40"></div>
 
     <header>
-      <h1>My Dad</h1>
-    </header>
+  <h1>Ramnarine Baboolal</h1>
+  <nav style="margin-top: 10px;">
+    <a href="Baboolalabout.html" style="margin: 0 15px; color: #003366; text-decoration: none; font-weight: bold;">About</a>
+    <a href="Baboolalhobbies.html" style="margin: 0 15px; color: #003366; text-decoration: none; font-weight: bold;">Hobbies</a>
+    <a href="Baboolalgoals.html" style="margin: 0 15px; color: #003366; text-decoration: none; font-weight: bold;">Goals</a>
+  </nav>
+</header>
 
     <section class="bio-section">
       <div class="bio">
-        <h2>Biography</h2>
+        <h2><a href="Baboolalabout.html">Biography</a></h2>
         <p>
           My Dad, was born on January 20th in Trinidad and Tobago. He grew up in a close-knit family that included his mother, father, two older sisters, and three older brothers, making him the youngest child in his family. One memory he has growing up is going to the beach with his family when he was younger, where they would spend hours swimming, relaxing, and enjoying each other’s company. After marrying my mom, they moved to the USA in January 2003 to allow their children to have a better life. Here, his family grew, and he is now a proud father of four. His family is his motivation every day. He loves spending his free time with them, whether they are watching a movie, doing an activity, or just enjoying each other’s company family time is something he values deeply. His goal is to see all his children become successful in life. These days, his life is steady and straightforward he goes to work, comes home, and enjoys a peaceful night with his family. He looks forward to retirement and upcoming vacations. His strengths include being practical, resourceful, and adaptable to any situation. He has no known weakness as of now and when asked what his challenges he has faced with in life his response was he never had any challenges and hopes to keep it that way. His hobbies include spending time with family, watching TV, and fixing cars, which he is skilled at. Some things he is the most proud of in his life are his wife, his children, and his job.
         </p>
       </div>
       <div class="profile-pic">
-        <img src="flower.png" alt="Picture of Subject" />
+        <img src="face.png" alt="Picture of Subject" />
       </div>
     </section>
 
@@ -243,11 +248,11 @@
       <h2><a href="Baboolalhobbies.html">Hobbies He Has and Pictures:</a></h2>
       <div class="card-grid">
         <div class="card">
-          <img src="family.png" alt="PNG of a Family holding hands" />
+          <img src="family.png" alt="PNG of my family hugging." />
           <p>Spending Time with Family</p>
         </div>
         <div class="card">
-          <img src="cars.png" alt="PNG of Fixing Car" />
+          <img src="cars.png" alt="PNG of my Dad fixing a car" />
           <p>Fixing Cars</p>
         </div>
         <div class="card">
@@ -258,18 +263,18 @@
     </section>
 
     <section class="goals">
-      <h2>Goals:</h2>
+      <h2><a href="Baboolalgoals.html">Goals:</a></h2>
       <div class="card-grid">
         <div class="card">
-          <img src="retirement.png" alt="PNG of a rocking chair with a coin on top of it" />
+          <img src="retirement.png" alt="PNG of My Dad and Mom hugging each other." />
           <p>Retirement</p>
         </div>
         <div class="card">
-          <img src="vacation.png" alt="PNG of a suitcase and a palm tree behind it with an umbrella" />
+          <img src="vacation.png" alt="PNG of My Dad and Mom on a plane." />
           <p>Vacation</p>
         </div>
         <div class="card">
-          <img src="success.png" alt="PNG of someone climbing a staircase reaching a flag" />
+          <img class="slideshow" src="success1.png" alt="Slideshow of success images" />
           <p>Seeing His Children Become Successful</p>
         </div>
       </div>
@@ -291,5 +296,25 @@
   <div class="bubble large bubble10"></div>
   <div class="bubble medium bubble11"></div>
   <div class="bubble large bubble12"></div>
+
+  <script>
+  const images = ["success1.png", "success2.png", "success3.png"];
+  let index = 0;
+
+  const slideshow = document.getElementById("slideshow");
+
+  if (slideshow) {
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      slideshow.src = images[index];
+    }, 3000); // 3000ms = 3 seconds
+  } else {
+    console.warn("Slideshow image not found.");
+  }
+</script>
+ <footer style="text-align:center; color:#003366; padding: 15px 0; font-size: 14px; position: relative; z-index: 1;">
+    © 2025 Brijette Baboolal - CSD 340 Web Development
+  </footer>
+
 </body>
 </html>

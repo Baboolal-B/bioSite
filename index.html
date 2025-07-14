@@ -11,15 +11,26 @@
       padding: 0;
     }
 
+    html, body {
+      height: 100%;
+    }
+
     body {
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(to right, #e0ecf8, #f9f9f9);
-      height: 100vh;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    main {
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
+      padding: 40px 20px;
     }
 
     .container {
@@ -61,17 +72,25 @@
       transform: scale(1.05);
     }
 
+    footer {
+      text-align: center;
+      color: #003366;
+      padding: 10px 0;
+      font-size: 12px;
+      background-color: transparent;
+    }
+
     /* Bubble animation */
     .bubble {
       position: absolute;
       border-radius: 50%;
       background-color: #3498db;
-      opacity: 0; /* start invisible */
+      opacity: 0;
       pointer-events: none;
       animation-name: floatUp;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
-      animation-fill-mode: forwards; /* keep opacity 0 until animation starts */
+      animation-fill-mode: forwards;
       z-index: 1;
     }
 
@@ -100,12 +119,13 @@
 </head>
 <body>
 
-  <!-- Main Content -->
-  <div class="container">
-    <h1>Welcome to Brijette's bioSite Project!</h1>
-    <p>Click the button below to explore the official bioSite page.</p>
-    <a href="BaboolalbioSite.html">Go to bioSite</a>
-  </div>
+  <main>
+    <div class="container">
+      <h1>Welcome to Brijette's bioSite Project!</h1>
+      <p>Click the button below to explore the official bioSite page.</p>
+      <a href="BaboolalbioSite.html">Go to bioSite</a>
+    </div>
+  </main>
 
   <!-- Bubble Generator -->
   <script>
@@ -118,7 +138,7 @@
       bubble.classList.add('bubble');
       bubble.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
       bubble.style.left = Math.random() * 100 + 'vw';
-      bubble.style.bottom = (-150 - Math.random() * 200) + 'px'; // start further below viewport
+      bubble.style.bottom = (-150 - Math.random() * 200) + 'px';
       bubble.style.animationDuration = (3 + Math.random() * 2) + 's';
       bubble.style.animationDelay = (Math.random() * 10) + 's';
       bubble.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
@@ -126,6 +146,10 @@
       body.appendChild(bubble);
     }
   </script>
+
+  <footer>
+    © 2025 Brijette Baboolal - CSD 340 Web Development
+  </footer>
 
 </body>
 </html>

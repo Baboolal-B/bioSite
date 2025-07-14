@@ -1,16 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Profile Page</title>
-  <link rel="stylesheet" href="BaboolalbioSite.css">
+  <link rel="stylesheet" href="BaboolalbioSite.css" />
+  <style>
+    body {
+      overflow-x: hidden;
+      overflow-y: hidden; /* No scroll */
+    }
+
+    /* Bubble styling */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background-color: #3498db;
+      opacity: 0.12;
+      z-index: 0;
+      pointer-events: none;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Bubble sizes */
+    .small {
+      width: 30px;
+      height: 30px;
+    }
+    .medium {
+      width: 50px;
+      height: 50px;
+    }
+    .large {
+      width: 80px;
+      height: 80px;
+    }
+    .xlarge {
+      width: 120px;
+      height: 120px;
+    }
+
+    /* Bubble positions and size overrides */
+    .bubble1 { bottom: -293px; left: -60px; }
+    .bubble2 { bottom: -147px; right: -60px; }
+    .bubble3 { bottom: -189px; left: 10%; }
+    .bubble4 { bottom: -378px; right: 20%; }
+    .bubble5 { bottom: -383px; left: 30%; }
+    .bubble6 { bottom: -213px; right: 35%; }
+
+    /* Additional bubbles lower down */
+    .bubble7 {
+      bottom: -450px;
+      left: 15%;
+      width: 60px;
+      height: 60px;
+    }
+    .bubble8 {
+      bottom: -420px;
+      right: 15%;
+      width: 40px;
+      height: 40px;
+    }
+    .bubble9 {
+      bottom: -460px;
+      left: 40%;
+      width: 90px;
+      height: 90px;
+    }
+
+    /* Bubbles on sides higher up */
+    .bubble10 { top: 150px; left: -50px; }
+    .bubble11 { top: 350px; right: -50px; }
+    .bubble12 { top: 250px; left: -70px; }
+
+    /* New bottom-right bubbles scattered */
+    .bubbleBR1 { bottom: 15px; right: 8%; }
+    .bubbleBR2 { bottom: 25px; right: 14%; }
+    .bubbleBR3 { bottom: 10px; right: 18%; }
+    .bubbleBR4 { bottom: 20px; right: 22%; }
+    .bubbleBR5 { bottom: 12px; right: 27%; }
+
+    /* Floating animation keyframes */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Make sure container is relative for bubbles */
+    .container {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background: transparent;
+      z-index: 1;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
+    <!-- Bubbles inside container -->
+    <div class="bubble large bubble13"></div>
+    <div class="bubble small bubble14"></div>
+    <div class="bubble large bubble15"></div>
+    <div class="bubble medium bubble16"></div>
+    <div class="bubble small bubble17"></div>
+    <div class="bubble medium bubble18"></div>
+    <div class="bubble medium bubble19"></div>
+    <div class="bubble small bubble20"></div>
+    <div class="bubble small bubble21"></div>
+    <div class="bubble medium bubble22"></div>
+    <div class="bubble small bubble23"></div>
+    <div class="bubble small bubble24"></div>
+    <div class="bubble large bubble25"></div>
+    <div class="bubble medium bubble26"></div>
+
     <header>
-      <h1>My Dad</h1>
-    </header>
+  <h1>Ramnarine Baboolal</h1>
+  <nav style="margin-top: 10px;">
+    <a href="BaboolalbioSite.html" style="margin: 0 15px; color: #003366; text-decoration: none; font-weight: bold;">Home</a>
+    <a href="Baboolalhobbies.html" style="margin: 0 15px; color: #003366; text-decoration: none; font-weight: bold;">Hobbies</a>
+    <a href="Baboolalgoals.html" style="margin: 0 15px; color: #003366; text-decoration: none; font-weight: bold;">Goals</a>
+  </nav>
+</header>
 
     <section class="bio-section">
       <div class="bio">
@@ -18,6 +131,37 @@
         <p>My Dad, was born on January 20th in Trinidad and Tobago. He grew up in a close-knit family that included his mother, father, two older sisters, and three older brothers, making him the youngest child in his family. One memory he has growing up is going to the beach with his family when he was younger, where they would spend hours swimming, relaxing, and enjoying each other’s company. After marrying his wife, they moved to the USA in January 2003 to allow their children to have a better life. Here, his family grew, and he is now a proud father of four. His family is his motivation every day. He loves spending his free time with them, whether they are watching a movie, doing an activity, or just enjoying each other’s company family time is something he values deeply. His goal is to see all his children become successful in life. These days, his life is steady and straightforward he goes to work, comes home, and enjoys a peaceful night with his family. He looks forward to retirement and upcoming vacations. His strengths include being practical, resourceful, and adaptable to any situation. He has no known weakness as of now and when asked what his challenges he has faced with in life his response was he never had any challenges and hope to keep it that way. His hobbies include spending time with family, watching TV, and fixing cars, which he is skilled at. Some things he is the most proud of in his life are his wife, his children, and his job.</p>
       </div>
       <div class="profile-pic">
-        <img src="flower.png" alt="Picture of Subject">
+        <img src="face.png" alt="Picture of Subject">
       </div>
     </section>
+  </div>
+
+  <!-- Bubbles outside container near bottom and sides -->
+  <div class="bubble xlarge bubble1"></div>
+  <div class="bubble large bubble2"></div>
+  <div class="bubble medium bubble3"></div>
+  <div class="bubble medium bubble4"></div>
+  <div class="bubble large bubble5"></div>
+  <div class="bubble xlarge bubble6"></div>
+
+  <div class="bubble medium bubble7"></div>
+  <div class="bubble small bubble8"></div>
+  <div class="bubble large bubble9"></div>
+
+  <div class="bubble large bubble10"></div>
+  <div class="bubble medium bubble11"></div>
+  <div class="bubble large bubble12"></div>
+
+  <!-- 5 bottom right bubbles -->
+  <div class="bubble small bubbleBR1"></div>
+  <div class="bubble medium bubbleBR2"></div>
+  <div class="bubble small bubbleBR3"></div>
+  <div class="bubble medium bubbleBR4"></div>
+  <div class="bubble small bubbleBR5"></div>
+  <footer style="text-align:center; color:#003366; padding: 15px 0; font-size: 14px; position: relative; z-index: 1;">
+    © 2025 Brijette Baboolal - CSD 340 Web Development
+  </footer>
+
+
+</body>
+</html>
